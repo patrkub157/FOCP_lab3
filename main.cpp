@@ -1,41 +1,25 @@
+#include <array>
 #include <iostream>
-#include <fstream>
-#include <string>
 
-using namespace std;
+// Define a struct ---> NEW TYPE
+struct Point2D
+{
+    double x;
+    double y;
+};
 
 int main()
 {
+    // Declare a variable with our struct
+    Point2D mypoint;
 
-    ofstream file;
+    // Initialize its members
+    mypoint.x = 3.3;
+    mypoint.y = 5.5;
 
-    file.open("file.txt");
-
-    file << "This is the first line\n";
-
-    file << "This is the sec line\n";
-
-    file << "This is the third line\n";
-
-    file.close();
-
-    ifstream new_file("file.txt");
-
-    if (new_file.is_open())
-    {
-        string line;
-
-        while (getline(new_file, line))
-        {
-            cout << line << endl;
-        }
-
-        new_file.close();
-    }
-    else
-    {
-        cout << "error with opening";
-    }
+    // Print its contents
+    std::cout << "Value of X: " << mypoint.x << std::endl;
+    std::cout << "Value of Y: " << mypoint.y << std::endl;
 
     return 0;
 }
